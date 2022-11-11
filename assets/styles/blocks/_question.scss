@@ -51,14 +51,6 @@
 @media (min-width: $small-desk) {
   .question {
     &__player-block {
-      width: 70%;
-    }
-  }
-}
-
-@media (min-width: $desk) {
-  .question {
-    &__player-block {
       width: 76%;
     }
   }

@@ -295,11 +295,6 @@ body {
 }
 @media (min-width: 992px) {
   .question__player-block {
-    width: 70%;
-  }
-}
-@media (min-width: 1200px) {
-  .question__player-block {
     width: 76%;
   }
 }
