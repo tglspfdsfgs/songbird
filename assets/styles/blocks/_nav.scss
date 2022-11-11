@@ -1,0 +1,46 @@
+.nav {
+
+  &__list {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0;
+    background-color: $bg-elem;
+    border: 1px solid $border;
+    border-radius: 4px;
+
+  }
+  &__elem-1 {
+    border-bottom: 1px solid $border;
+  }
+
+  &__link {
+    display: block;
+    box-sizing: border-box;
+    height: 52px;
+    line-height: 1.7em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+
+    &:before {
+      content: "⬤";
+      font-size: 0.9em;
+      margin-right: 15px;
+      color: $btn-unactive;
+    }
+
+    &:active {
+      background-color: $bg-elem-highlight;    
+    }
+
+    &--active {
+      &:before {
+        color: $btn-highlight;
+      }
+    }
+  }
+}

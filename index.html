@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="assets/styles/style.css">
   </head>
   <body>
-  <script src="script.js"></script>
+    <div class="container">
+      <header class="header">
+        <a class="header__logo" href="index.html">
+          <img src="assets/logo/logo.svg">
+        </a>
+        <nav class="header__nav nav">
+          <ul class="nav__list">
+            <li class="nav__elem nav__elem-1"><a class="nav__link nav__link--active" >Главная</a></li>
+            <li class="nav__elem nav__elem-2"><a class="nav__link" href="quiz.html">Викторина</a></li>
+          </ul>
+        </nav>
+        <div class="header__score-block">
+          <div class="header__score">Score: <span class="header__score-count">0</span></div>
+        </div>
+      </header>
+      <main class="quiz main">
+        <p class="quiz__p3">Проверьте себя и узнайте, насколько вы хорошо узнаете птиц по их пению!</p>
+        <h3 class="quiz__h3">Интересные факты: </h3>
+        <ol class="quiz__list">
+          <li><p>Известно, что у гениального композитора Вольфганга Амадея Моцарта был ручной скворец. Однажды Моцарт сыграл ему только что сочиненный фрагмент фортепианного концерта №21, а скворец воспроизвел его, при этом заменил в мелодии диезы на бемоли. Композитор в итоге записал вариант мелодии скворца</p>
+          </li>
+          <li><p>Птицы не рождаются со способность исполнять песни своей популяции. Так же, как и люди, они должны слушать пение взрослых особей, чтобы освоить его</p></li>
+          <li><p>Большинство звуков, издаваемых птицами, мелодично для человеческого уха и оказало влияние на развитие музыки</p></li>
+          <li><p>В большинстве случаев, когда вы слышите пение птиц, вероятней всего это самец. Самцы используют песню для привлечения сородичей и защиты своей родной территории</p></li>
+        </ol>
+        <a class="quiz__next-btn quiz__next-btn--active quiz__new-game-btn" href='quiz.html'>Играть!</a>
+      </main>
+      <footer class="footer">
+        <a class="footer__logo" href="https://rs.school/js/">
+          <img src="assets/logo/rs_school.svg" alt="RS School logo">
+        </a>
+        <div class="footer__author">Разработано: 
+          <a href="https://github.com/tglspfdsfgs">tglspfdsfgs</a>
+          2022г.
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

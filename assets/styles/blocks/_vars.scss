@@ -1,0 +1,29 @@
+//COLORS
+$bg: #222;
+$bg-elem: #303030;
+$bg-elem-highlight: #444;
+$btn: #008966;
+$btn-highlight: #00bc8c;
+$btn-err: #d62c1a;
+$btn-unactive: #444;
+$audio-track: #808080;
+$border: #555;
+
+//BREAKPOINTS 
+$desk: 1200px;
+$small-desk: 992px;
+$tablet: 768px;
+$tablet-small: 570px;
+
+//DEFAULT SETS
+body {
+  background-color: $bg;
+  line-height: 1em;
+  font-size: 14px;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+* {
+  transition: all 0.4s ease-out;
+}

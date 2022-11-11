@@ -1,0 +1,50 @@
+.answers {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-elem;
+  border: 1px solid $border;
+  border-radius: 4px;
+  margin-bottom: 30px;
+
+  &__option {
+    display: block;
+    box-sizing: border-box;
+    height: 52px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    cursor: pointer;
+    text-align: start;
+    line-height: 1.7em;
+    color: inherit;
+    background: unset;
+    border: none;
+    border-bottom: 1px solid $border;
+    
+    &:before {
+      content: "⬤";
+      font-size: 0.9em;
+      margin-right: 15px;
+      color: $btn-unactive;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: $bg-elem-highlight;
+    }
+
+    &--error:before {
+      color: $btn-err;
+    }
+
+    &--correct:before {
+      color: $btn-highlight;
+    }
+  }
+}

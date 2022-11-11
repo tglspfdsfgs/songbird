@@ -1,0 +1,32 @@
+.bread-crumbs {
+  background-color: #008966;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    flex-grow: 1;
+  }
+  &__elem {
+    display: block;
+    box-sizing: border-box;
+    flex: auto;
+    text-align: center;
+    line-height: 1.2em;
+    height: 35px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    &--active {
+      background-color: $btn-highlight;
+    }
+  }
+}

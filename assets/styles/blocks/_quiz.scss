@@ -1,0 +1,124 @@
+.quiz {
+  margin-bottom: 30px;
+
+  &__next-btn {
+    text-decoration: unset;
+    display: block;
+    height: 30px;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+
+    line-height: 2.2em;
+    text-align: center;
+    color: inherit;
+    background: $bg-elem;
+    border: none;
+    border: 1px solid $border;
+    border-radius: 4px;
+
+    &--active {
+      background: $btn;
+      &:hover {
+        background: $btn-highlight
+      }
+    }
+  }
+
+  &__new-game-btn {
+    line-height: 2.2em;
+  }
+
+  &__congrats {
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 20px;
+    background-color: $bg-elem;
+    border-radius: 4px;
+  }
+
+  &__h1 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  &__p1 {
+    margin: 0;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid $border;
+  }
+
+  &__p3 {
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+  }
+
+  &__h3 {
+    padding-left: 10px;
+  }
+
+  &__list {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: $tablet) {
+  .quiz {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &__bread-crumbs,
+    &__question,
+    &__next-btn {
+      width: 100%;
+    }
+    &__answers,
+    &__description {
+      width: 45%;
+    }
+    &__congrats {
+      padding: 20px;
+      padding-bottom: 40px;
+      background-color: $bg-elem;
+      border-radius: 4px;
+    }
+
+    &__h1 {
+      font-size: 2.5em;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+    &__p1 {
+      margin-bottom: 35px;
+      padding-bottom: 15px;
+    }
+
+    &__next-btn {
+      line-height: 2.9em;
+      height: 42px;
+    }
+  }
+}
+
+@media (min-width: $small-desk) {
+  .quiz {
+    &__congrats {
+      padding-bottom: 80px;
+    }
+
+    &__h1 {
+      margin-top: 20px;
+      margin-bottom: 35px;
+      font-size: 3em;
+    }
+    &__p1 {
+      font-size: 1.5em;
+      padding-bottom: 25px;
+    }
+  }
+}

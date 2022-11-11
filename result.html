@@ -9,6 +9,50 @@
     <link rel="stylesheet" href="assets/styles/style.css">
   </head>
   <body>
+    <div class="container">
+      <header class="header">
+        <a class="header__logo" href="index.html">
+          <img src="assets/logo/logo.svg">
+        </a>
+        <nav class="header__nav nav">
+          <ul class="nav__list">
+            <li class="nav__elem nav__elem-1"><a class="nav__link" href="index.html">Главная</a></li>
+            <li class="nav__elem nav__elem-2"><a class="nav__link nav__link--active">Викторина</a></li>
+          </ul>
+        </nav>
+        <div class="header__score-block">
+          <div class="header__score">Score: <span class="header__score-count">0</span></div>
+        </div>
+      </header>
+      <main class="quiz">
+        <div class="quiz__bread-crumbs bread-crumbs">
+          <ul class="bread-crumbs__list">
+            <li class="bread-crumbs__elem">Разминка</li>
+            <li class="bread-crumbs__elem">Воробьиные</li>
+            <li class="bread-crumbs__elem">Лесные птицы</li>
+            <li class="bread-crumbs__elem">Певчие птицы</li>
+            <li class="bread-crumbs__elem">Хищные птицы</li>
+            <li class="bread-crumbs__elem">Морские птицы</li>
+          </ul>
+        </div>
+        <div class="quiz__congrats">
+          <h3 class="quiz__h1">Поздравляем!</h3>
+          <p class="quiz__p1 quiz__p1--try-again">Вы прошли викторину и набрали <span class="quiz__score quiz__score--result">0</span> из <span class="quiz__score">30</span> возможных баллов</p>
+          <p class="quiz__p1 quiz__p1--win" hidden>Вы прошли викторину и набрали максимальное колличество возможных баллов</p>
+          <a class="quiz__next-btn quiz__next-btn--active quiz__new-game-btn" href='quiz.html'><span class="quiz__new-game-btn-try-again">Попробовать еще раз!</span><span class="quiz__btn-sign-try-again" hidden>Новая игра</span> </a>
+        </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <a class="footer__logo" href="https://rs.school/js/">
+          <img src="assets/logo/rs_school.svg" alt="RS School logo">
+        </a>
+        <div class="footer__author">Разработано: 
+          <a href="https://github.com/tglspfdsfgs">tglspfdsfgs</a>
+          2022г.
+        </div>
+      </footer>
+    </div>
   <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  
+  &__logo img {
+    width: 200px;
+    height: 64px;
+  }
+
+  &__score-block {
+    margin-right: 1px;
+    margin-bottom: 1px;
+    padding-right: 4px;
+    padding-left: 4px;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+    align-self: flex-start;
+    background-color: $bg;
+  }
+
+  &__nav {
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media (min-width: $tablet) {
+  .header {
+    &__logo {
+      margin-right: 45%;
+    }
+    &__nav {
+      width: 45%;
+    }
+  }
+}

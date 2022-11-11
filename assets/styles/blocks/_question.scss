@@ -1,0 +1,65 @@
+.question {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-elem;
+  border-radius: 4px;
+  margin-bottom: 25px;
+
+  &__img {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    border-radius: 4px;
+  }
+
+  &__bird-name {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $border;
+  }
+}
+
+@media (min-width: $tablet) {
+  .question {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__img {
+      margin: 0;
+    }
+
+    &__bird-name {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    &__player-block {
+      width: 60%;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media (min-width: $small-desk) {
+  .question {
+    &__player-block {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: $desk) {
+  .question {
+    &__player-block {
+      width: 76%;
+    }
+  }
+}
