@@ -24,6 +24,8 @@
     border: none;
     border-bottom: 1px solid $border;
     
+    transition: all 0.4s ease-out;
+    
     &:before {
       content: "⬤";
       font-size: 0.9em;

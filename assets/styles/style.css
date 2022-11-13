@@ -7,10 +7,6 @@ body {
   font-family: sans-serif;
 }
 
-* {
-  transition: all 0.4s ease-out;
-}
-
 .container {
   width: 94%;
   margin-left: auto;
@@ -88,6 +84,7 @@ body {
   padding-right: 20px;
   padding-top: 14px;
   padding-bottom: 14px;
+  transition: all 0.4s ease-out;
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
@@ -121,6 +118,7 @@ body {
   border: none;
   border: 1px solid #555;
   border-radius: 4px;
+  transition: all 0.4s ease-out;
 }
 .quiz__next-btn--active {
   background: #008966;
@@ -258,7 +256,8 @@ body {
   margin-bottom: 25px;
 }
 .question__img {
-  width: 200px;
+  width: auto;
+  height: 140px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 25px;
@@ -288,14 +287,14 @@ body {
     margin-bottom: 20px;
   }
   .question__player-block {
-    width: 60%;
+    width: 58%;
     margin-right: 20px;
     margin-left: 20px;
   }
 }
 @media (min-width: 992px) {
   .question__player-block {
-    width: 76%;
+    width: 74%;
   }
 }
 .audioplayer {
@@ -311,16 +310,24 @@ body {
   border-radius: 50%;
   background-color: unset;
   cursor: pointer;
+  transition: all 0.4s ease-out;
 }
 .audioplayer__btn:hover .audioplayer__play-img, .audioplayer__btn:hover .audioplayer__stop-img {
   transform: scale(1.1);
 }
 .audioplayer__play-img {
+  display: none;
   margin-top: 4px;
 }
 .audioplayer__stop-img {
   display: none;
   margin-top: 4px;
+}
+.audioplayer__btn--stop .audioplayer__stop-img {
+  display: inline;
+}
+.audioplayer__btn--play .audioplayer__play-img {
+  display: inline;
 }
 .audioplayer__track {
   height: 4px;
@@ -353,8 +360,9 @@ body {
   color: #d3d3d3;
 }
 .audioplayer__volume {
+  position: relative;
   display: block;
-  width: 85px;
+  width: 78px;
   margin-top: -14px;
   margin-left: auto;
   font-size: 10px;
@@ -365,6 +373,13 @@ body {
   border: none;
   padding: 0;
   cursor: pointer;
+}
+.audioplayer__vol-btn--incr {
+  position: absolute;
+  right: 0;
+}
+.audioplayer__vol {
+  white-space: pre;
 }
 
 .answers {
@@ -390,6 +405,7 @@ body {
   background: unset;
   border: none;
   border-bottom: 1px solid #555;
+  transition: all 0.4s ease-out;
 }
 .answers__option:before {
   content: "⬤";
@@ -439,7 +455,8 @@ body {
   flex-direction: column;
 }
 .article__img {
-  width: 200px;
+  width: auto;
+  height: 140px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -493,6 +510,7 @@ body {
   border-radius: 4px;
   border: 1px solid #555;
   background: #008966;
+  transition: all 0.4s ease-out;
 }
 .footer__author a:hover {
   background: #00bc8c;

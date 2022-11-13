@@ -1,135 +1,132 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>songbird</title>
-    <link rel="icon" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="assets/styles/normalize.css">
-    <link rel="stylesheet" href="assets/styles/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <a class="header__logo" href="index.html">
-          <img src="assets/logo/logo.svg">
-        </a>
-        <nav class="header__nav nav">
-          <ul class="nav__list">
-            <li class="nav__elem nav__elem-1"><a class="nav__link" href="index.html">Главная</a></li>
-            <li class="nav__elem nav__elem-2"><a class="nav__link nav__link--active">Викторина</a></li>
-          </ul>
-        </nav>
-        <div class="header__score-block">
-          <div class="header__score">Score: <span class="header__score-count">0</span></div>
-        </div>
-      </header>
-      <main class="quiz">
-        <div class="quiz__bread-crumbs bread-crumbs">
-          <ul class="bread-crumbs__list">
-            <li class="bread-crumbs__elem bread-crumbs__elem--active">Разминка</li>
-            <li class="bread-crumbs__elem">Воробьиные</li>
-            <li class="bread-crumbs__elem">Лесные птицы</li>
-            <li class="bread-crumbs__elem">Певчие птицы</li>
-            <li class="bread-crumbs__elem">Хищные птицы</li>
-            <li class="bread-crumbs__elem">Морские птицы</li>
-          </ul>
-        </div>
-        <div class="quiz__question question">
-          <img class="question__img" src="assets/images/bird.jpg" alt="bird img">
-          <div class="question__player-block">
-            <h3 class="question__bird-name">******</h3>
-            <div class="question__audioplayer audioplayer">
-              <button class="audioplayer__btn">
-
-                <svg class='audioplayer__play-img' viewBox="-200 0 1200 1000"><path fill="#00bc8c" d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z"></path></svg>
-
-                <svg class='audioplayer__stop-img' viewBox="0 0 47.607 47.607"><path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path></svg>
-
-              </button>
-              <div class="audioplayer__controls">
-                <div class="audioplayer__track">
-                  <div class="audioplayer__progress">
-                  </div>
-                  <div class="audioplayer__progress-thumb"></div>
-                </div>
-                <div class="audioplayer__timer">
-                  <span class="audioplayer__curr-time">00:00</span>
-                  /
-                  <span class="audioplayer__duration">00:00</span>
-                </div>
-                <div class="audioplayer__volume">
-                  <button class="audioplayer__vol-btn audioplayer__vol-btn--decr" type="button">➖</button>
-                  Vol: <span>100%</span>
-                  <button class="audioplayer__vol-btn audioplayer__vol-btn--incr" type="button">➕</button>
-                  
-                </div>
-              </div>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>songbird</title>
+      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="stylesheet" href="assets/styles/normalize.css">
+      <link rel="stylesheet" href="assets/styles/style.css">
+   </head>
+   <body>
+      <div class="container">
+         <header class="header">
+            <a class="header__logo" href="index.html">
+            <img src="assets/logo/logo.svg">
+            </a>
+            <nav class="header__nav nav">
+               <ul class="nav__list">
+                  <li class="nav__elem nav__elem-1"><a class="nav__link" href="index.html">Главная</a></li>
+                  <li class="nav__elem nav__elem-2"><a class="nav__link nav__link--active">Викторина</a></li>
+               </ul>
+            </nav>
+            <div class="header__score-block">
+               <div class="header__score">Score: <span class="header__score-count">0</span></div>
             </div>
-          </div>
-
-        </div>
-
-        <section class="quiz__answers answers">
-          <button type="button" class="answers__option answers__option--error">Ворон</button>
-          <button type="button" class="answers__option answers__option--correct">Журавль</button>
-          <button type="button" class="answers__option">Ласточка</button>
-          <button type="button" class="answers__option">Козодой</button>
-          <button type="button" class="answers__option">Кукушка</button>
-          <button type="button" class="answers__option">Синица</button>
-        </section>
-        <section class="quiz__description description description--active">
-          <p class="description__placeholder">Послушайте плеер.<br>Выберите птицу из списка</p>
-          <article class="article">
-              <img class="article__img" src="assets/images/bird.jpg" alt="bird img">
-              <div class="article__player-block">
-                <h3 class="article__name">Синица</h3>
-                <h4 class="article__species">Parus major</h4>
-                <div class="article__audioplayer audioplayer">
-                <div class="article__audioplayer audioplayer">
-                  <button class="audioplayer__btn">
-
-                    <svg class='audioplayer__play-img' viewBox="-200 0 1200 1000"><path fill="#00bc8c" d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z"></path></svg>
-
-                    <svg class='audioplayer__stop-img' viewBox="0 0 47.607 47.607"><path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path></svg>
-
-                  </button>
-                  <div class="audioplayer__controls">
-                    <div class="audioplayer__track">
-                      <div class="audioplayer__progress">
-                      </div>
-                      <div class="audioplayer__progress-thumb"></div>
-                    </div>
-                    <div class="audioplayer__timer">
-                      <span class="audioplayer__curr-time">00:00</span>
-                      /
-                      <span class="audioplayer__duration">00:00</span>
-                    </div>
-                    <div class="audioplayer__volume">
-                      <button class="audioplayer__vol-btn audioplayer__vol-btn--decr" type="button">➖</button>
-                      Vol: <span>100%</span>
-                      <button class="audioplayer__vol-btn audioplayer__vol-btn--incr" type="button">➕</button>
-                      
-                    </div>
+         </header>
+         <main class="quiz">
+            <div class="quiz__bread-crumbs bread-crumbs">
+               <ul class="bread-crumbs__list">
+                  <li class="bread-crumbs__elem bread-crumbs__elem--active">Разминка</li>
+                  <li class="bread-crumbs__elem">Воробьиные</li>
+                  <li class="bread-crumbs__elem">Лесные птицы</li>
+                  <li class="bread-crumbs__elem">Певчие птицы</li>
+                  <li class="bread-crumbs__elem">Хищные птицы</li>
+                  <li class="bread-crumbs__elem">Морские птицы</li>
+               </ul>
+            </div>
+            <div class="quiz__question question">
+               <img class="question__img" src="assets/images/bird.jpg" alt="bird img">
+               <div class="question__player-block">
+                  <h3 class="question__bird-name">******</h3>
+                  <div class="question__audioplayer audioplayer">
+                     <button class="audioplayer__btn audioplayer__btn--play">
+                        <svg class='audioplayer__play-img' viewBox="-200 0 1200 1000">
+                           <path fill="#00bc8c" d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z"></path>
+                        </svg>
+                        <svg class='audioplayer__stop-img' viewBox="0 0 47.607 47.607">
+                           <path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path>
+                        </svg>
+                     </button>
+                     <div class="audioplayer__controls">
+                        <div class="audioplayer__track">
+                           <div class="audioplayer__progress">
+                           </div>
+                           <div class="audioplayer__progress-thumb"></div>
+                        </div>
+                        <div class="audioplayer__timer">
+                           <span class="audioplayer__curr-time">00:00</span>
+                           /
+                           <span class="audioplayer__duration">00:00</span>
+                        </div>
+                        <div class="audioplayer__volume">
+                           <button class="audioplayer__vol-btn audioplayer__vol-btn--decr" type="button">➖</button>
+                           Vol: <span class="audioplayer__vol">100</span>%
+                           <button class="audioplayer__vol-btn audioplayer__vol-btn--incr" type="button">➕</button>
+                        </div>
+                     </div>
                   </div>
-                </div>
-                </div>
-              </div>
-              <p class="article__text">В щебетании синиц различают более 40 различных звуковых сочетаний. Поют они практически круглый год, немного затихая только зимой. Синицы настоящие санитары леса. Одна пара синиц в период гнездования оберегает от вредителей десятки деревьев.</p>
-          </article>
-        </section>
-        <a href="result.html" class="quiz__next-btn quiz__next-btn--active">Next Level</a>
-      </main>
-      <footer class="footer">
-        <a class="footer__logo" href="https://rs.school/js/">
-          <img src="assets/logo/rs_school.svg" alt="RS School logo">
-        </a>
-        <div class="footer__author">Разработано: 
-          <a href="https://github.com/tglspfdsfgs">tglspfdsfgs</a>
-          2022г.
-        </div>
-      </footer>
-    </div>
-    <script src="script.js"></script>
-  </body>
+               </div>
+            </div>
+            <section class="quiz__answers answers">
+               <button data-id="1" type="button" class="answers__option"></button>
+               <button data-id="2" type="button" class="answers__option"></button>
+               <button data-id="3" type="button" class="answers__option"></button>
+               <button data-id="4" type="button" class="answers__option"></button>
+               <button data-id="5" type="button" class="answers__option"></button>
+               <button data-id="6" type="button" class="answers__option"></button>
+            </section>
+            <section class="quiz__description description ">
+               <p class="description__placeholder">Послушайте плеер.<br>Выберите птицу из списка</p>
+               <article class="article">
+                  <img class="article__img" src="assets/images/bird.jpg" alt="bird img">
+                  <div class="article__player-block">
+                     <h3 class="article__name"></h3>
+                     <h4 class="article__species"></h4>
+                     <div class="article__audioplayer audioplayer">
+                        <button class="audioplayer__btn audioplayer__btn--play">
+                           <svg class='audioplayer__play-img' viewBox="-200 0 1200 1000">
+                              <path fill="#00bc8c" d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z"></path>
+                           </svg>
+                           <svg class='audioplayer__stop-img' viewBox="0 0 47.607 47.607">
+                              <path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path>
+                           </svg>
+                        </button>
+                        <div class="audioplayer__controls">
+                           <div class="audioplayer__track">
+                              <div class="audioplayer__progress">
+                              </div>
+                              <div class="audioplayer__progress-thumb"></div>
+                           </div>
+                           <div class="audioplayer__timer">
+                              <span class="audioplayer__curr-time">00:00</span>
+                              /
+                              <span class="audioplayer__duration">00:00</span>
+                           </div>
+                          <div class="audioplayer__volume">
+                             <button class="audioplayer__vol-btn audioplayer__vol-btn--decr" type="button">➖</button>
+                             Vol: <span class="audioplayer__vol">100</span>%
+                             <button class="audioplayer__vol-btn audioplayer__vol-btn--incr" type="button">➕</button>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  <p class="article__text"></p>
+               </article>
+            </section>
+            <a href="result.html" class="quiz__next-btn">Next Level</a>
+         </main>
+         <footer class="footer">
+            <a class="footer__logo" href="https://rs.school/js/">
+            <img src="assets/logo/rs_school.svg" alt="RS School logo">
+            </a>
+            <div class="footer__author">Разработано: 
+               <a href="https://github.com/tglspfdsfgs">tglspfdsfgs</a>
+               2022г.
+            </div>
+         </footer>
+      </div>
+      <script src="assets/scripts/birdData.js"></script>
+      <script src="assets/scripts/script.js"></script>
+   </body>
 </html>

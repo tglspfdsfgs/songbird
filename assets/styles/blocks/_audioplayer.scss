@@ -11,6 +11,8 @@
     border-radius: 50%;
     background-color: unset;
     cursor: pointer;
+    
+    transition: all 0.4s ease-out;
 
     &:hover .audioplayer__play-img,
     &:hover .audioplayer__stop-img {
@@ -18,6 +20,7 @@
     }
   }
   &__play-img {
+    display: none;
     margin-top: 4px;
   }
   &__stop-img {
@@ -25,6 +28,12 @@
     margin-top: 4px;
   }
 
+  &__btn--stop &__stop-img {
+    display: inline;
+  }
+  &__btn--play &__play-img {
+    display: inline;
+  }
   &__track {
     height: 4px;
     background-color: $audio-track;
@@ -61,8 +70,9 @@
   }
 
   &__volume {
+    position: relative;
     display: block;
-    width: 85px;
+    width: 78px;
     margin-top: -14px;
     margin-left: auto;
     font-size: 10px;
@@ -74,5 +84,14 @@
     border: none;
     padding: 0;
     cursor: pointer;
+
+    &--incr {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &__vol {
+    white-space: pre;
   }
 }
