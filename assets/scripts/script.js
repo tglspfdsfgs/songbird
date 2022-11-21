@@ -1,4 +1,3 @@
-const birdData = window.birdsData;
 let rightAnwserIndex = randomInteger(0, 5);
 let isLVLPassed = false;
 
@@ -18,22 +17,50 @@ const questionElem = document.querySelector('.question');
 const descrElem = document.querySelector('.description');
 const articleElem = document.querySelector('.article');
 const nextBtnElem = document.querySelector('.quiz__next-btn');
+const placeHolderElem = document.querySelector('.description__placeholder');
+const navList = [ document.querySelector('.nav__elem-1 .nav__link'),
+                  document.querySelector('.nav__elem-2 .nav__link') ];
+
+const langRuBtn = document.querySelector('.header__btn--ru');
+const langEnBtn = document.querySelector('.header__btn--en');
 
 const errorMessage = new Audio('./assets/sounds/error.mp3');
 const winMessage = new Audio('./assets/sounds/win.mp3');
 
 let quizStep = +localStorage.getItem('quizStep');
 if (quizStep > 5) quizStep = 5;
-let articleIndex = quizStep;
+let stepIndex = quizStep;
+let articleIndex;
 localStorage.setItem('quizStep', quizStep);
 
 let score = +localStorage.getItem('score');
 localStorage.setItem('score', score);
 scoreElem.innerText = score;
 
+let content = {
+  en: {
+    navList: ['Main', 'Quiz'],
+    breadCrumbs: ['Warm-up', 'Sparrows', 'Forest Birds', 'Songbirds', 'Raptors', 'Seabirds'],
+    placeHolder: 'Listen to the player.<br>Select a bird from the list',
+  },
+  ru: {
+    navList: ['Главная', 'Викторина'],
+    breadCrumbs: ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы', 'Хищные птицы', 'Морские птицы'],
+    placeHolder: 'Послушайте плеер.<br>Выберите птицу из списка',
+  }
+}
+
+let lang = localStorage.getItem('lang');
+if (!lang) localStorage.setItem('lang', 'ru');
+if (lang == 'en') {
+  langRuBtn.classList.remove('header__btn--active');
+  langEnBtn.classList.add('header__btn--active');
+  changeLang();
+}
+
 class audioBlock {
   constructor(node, step) {
-
+    let birdData = getData();
     this.element = node;
     this.audio = new Audio(birdData[step][rightAnwserIndex].audio);
 
@@ -135,18 +162,38 @@ const article = {
   text: articleElem.querySelector('.article__text'),
 };
 
-const questionPlayer = new audioBlock(questionElem.querySelector('.audioplayer'), quizStep);
-const articlePlayer = new audioBlock(articleElem.querySelector('.audioplayer'), articleIndex);
+const questionPlayer = new audioBlock(questionElem.querySelector('.audioplayer'), stepIndex);
+const articlePlayer = new audioBlock(articleElem.querySelector('.audioplayer'), stepIndex);
 
-fillOptions(quizStep);
-updateElements(quizStep);
+fillOptions(stepIndex);
+updateElements(stepIndex);
 
 function fillOptions(step) {
   if (!optionsCollection) return;
+  let birdData = getData();
   for (let i = 0; i < optionsCollection.length; i++) {
-    optionsCollection[i].innerText = birdsData[step][i].name;
+    optionsCollection[i].innerText = birdData[step][i].name;
   }
 }
+
+function changeLang() {
+  for (let i = 0; i < navList.length; i++) {
+    navList[i].innerText = content[lang].navList[i];
+  }
+  for (let i = 0; i < breadCrumbsElem.children.length; i++) {
+    breadCrumbsElem.children[i].innerHTML = content[lang].breadCrumbs[i];
+  }
+  placeHolderElem.innerHTML = content[lang].placeHolder;
+
+  let data = getData();
+
+  fillOptions(stepIndex, data);
+  fillArticle(data, stepIndex, articleIndex);
+
+  if (isLVLPassed) {
+    question.birdName.innerText = data[stepIndex][rightAnwserIndex].name;
+  }
+} 
 
 function clearAnswersMarks () {
   for (let option of optionsCollection) {
@@ -156,17 +203,18 @@ function clearAnswersMarks () {
 }
 
 function updateElements(step) {
+  let birdData = getData();
   questionPlayer.pause();
   questionPlayer.audio.onloadeddata = function() {
     questionPlayer.update();
   }
   breadCrumbsElem.querySelector('.bread-crumbs__elem--active')?.classList.remove("bread-crumbs__elem--active");
   breadCrumbsElem.children[step].classList.add("bread-crumbs__elem--active");
-  questionPlayer.audio.src = birdsData[quizStep][rightAnwserIndex].audio;
+  questionPlayer.audio.src = birdData[stepIndex][rightAnwserIndex].audio;
 }
 
 function updatePlayer(player, index, src) {
-  player.audio = new Audio(birdsData[articleIndex][index].audio);
+  player.audio = new Audio(birdsData[stepIndex][index].audio);
   player.audio.onloadeddata = function() {
     player.update();
   }
@@ -186,24 +234,51 @@ nextBtnElem.onclick = function(event) {
     question.birdName.innerText = '******';
 
     clearAnswersMarks();
-    fillOptions(quizStep);
+    fillOptions(quizStep, birdsData);
     updateElements(quizStep);
 
     descrElem.classList.remove('description--active');
 
     nextBtnElem.classList.remove('quiz__next-btn--active');
+
+    articlePlayer.pause();
+
+    rightAnwserIndex = randomInteger(0, 5);
   }
 
-  articleIndex = quizStep;
+  stepIndex = quizStep;
 }
 
+langEnBtn.onpointerup = function(event) {
+  if (lang == 'en') return;
+
+  localStorage.setItem('lang', 'en');
+  lang = 'en';
+
+  langRuBtn.classList.remove('header__btn--active');
+  langEnBtn.classList.add('header__btn--active');
+  changeLang();
+}
+
+langRuBtn.onpointerup = function(event) {
+  if (lang == 'ru') return;
+
+  localStorage.setItem('lang', 'ru');
+  lang = 'ru';
+
+  langEnBtn.classList.remove('header__btn--active');
+  langRuBtn.classList.add('header__btn--active');
+  changeLang();
+}
 
 answersElem.onpointerup = function(event) {
   const option = event.target;
   if (!option.closest('.answers__option')) return;
 
+  let birdData = getData();
+
   if (!isLVLPassed) {
-    if (option.dataset.id == birdData[quizStep][rightAnwserIndex].id) {
+    if (option.dataset.id == birdData[stepIndex][rightAnwserIndex].id) {
       if (!errorMessage.paused) {
         errorMessage.pause();
       }
@@ -213,14 +288,13 @@ answersElem.onpointerup = function(event) {
         winMessage.currentTime = 0;
       }
       
-
       option.classList.add('answers__option--correct');
       nextBtnElem.classList.add('quiz__next-btn--active');
 
       questionPlayer.pause();
 
-      question.img.src = birdData[quizStep][rightAnwserIndex].image;
-      question.birdName.innerText = birdData[quizStep][rightAnwserIndex].name;
+      question.img.src = birdData[stepIndex][rightAnwserIndex].image;
+      question.birdName.innerText = birdData[stepIndex][rightAnwserIndex].name;
 
       isLVLPassed = true;
       quizStep++;
@@ -249,14 +323,21 @@ answersElem.onpointerup = function(event) {
 
   descrElem.classList.add('description--active');
 
-  let index = option.dataset.id - 1;
-  article.img.src = birdData[articleIndex][index].image;
-  article.birdName.innerText = birdData[articleIndex][index].name;
-  article.species.innerText = birdData[articleIndex][index].species;
-  article.text.innerText = birdData[articleIndex][index].description;
+  articleIndex = option.dataset.id - 1;
+
+  fillArticle(birdData, stepIndex, articleIndex);
 
   articlePlayer.pause();
-  updatePlayer(articlePlayer, index, birdData[articleIndex][index].audio);
+  updatePlayer(articlePlayer, articleIndex, birdData[stepIndex][articleIndex].audio);
+}
+
+function fillArticle(data, stepIndex, articleIndex) {
+  if (articleIndex == undefined) return;
+
+  article.img.src = data[stepIndex][articleIndex].image;
+  article.birdName.innerText = data[stepIndex][articleIndex].name;
+  article.species.innerText = data[stepIndex][articleIndex].species;
+  article.text.innerText = data[stepIndex][articleIndex].description;
 }
 
 function randomInteger(min, max) {
@@ -264,8 +345,16 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
+function getData() {
+  if (localStorage.getItem('lang') == 'en') {
+    return window.birdsDataEN;
+  } else {
+    return window.birdsData;
+  }
+}
+
 function getTimeCodeFromSec(num) {
-  if (isNaN(num)) return '00:00';
+  if (isNaN(num)) return 'Loading';
 
   let min = parseInt(num / 60) + "";
   min = min.length < 2 ? '0' + min : min;

@@ -34,6 +34,20 @@ body {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+.header__lang {
+  margin-top: 12px;
+  margin-left: auto;
+}
+.header__btn {
+  border-radius: 2px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: #008966;
+}
+.header__btn--active {
+  background: #00bc8c;
+}
 .header__logo img {
   width: 200px;
   height: 64px;
@@ -525,12 +539,10 @@ body {
     margin-bottom: 10px;
     box-sizing: border-box;
     margin-left: 43%;
-    width: 60%;
   }
 }
 @media (min-width: 992px) {
   .footer__logo {
     margin-left: 45.5%;
-    width: 60%;
   }
 }

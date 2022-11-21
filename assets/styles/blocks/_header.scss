@@ -4,7 +4,22 @@
 
   flex-wrap: wrap;
   margin-bottom: 20px;
-  
+  &__lang {
+    margin-top: 12px;
+    margin-left: auto;
+  }
+
+  &__btn {
+    border-radius: 2px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background: $btn;
+    &--active {
+      background: $btn-highlight;
+    }
+  }
+
   &__logo img {
     width: 200px;
     height: 64px;
