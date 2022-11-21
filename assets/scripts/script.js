@@ -210,7 +210,7 @@ function updateElements(step) {
   }
   breadCrumbsElem.querySelector('.bread-crumbs__elem--active')?.classList.remove("bread-crumbs__elem--active");
   breadCrumbsElem.children[step].classList.add("bread-crumbs__elem--active");
-  questionPlayer.audio.src = birdData[stepIndex][rightAnwserIndex].audio;
+  questionPlayer.audio.src = birdData[quizStep][rightAnwserIndex].audio;
 }
 
 function updatePlayer(player, index, src) {
@@ -233,6 +233,8 @@ nextBtnElem.onclick = function(event) {
     question.img.src = 'assets/images/bird.jpg';
     question.birdName.innerText = '******';
 
+    rightAnwserIndex = randomInteger(0, 5);
+
     clearAnswersMarks();
     fillOptions(quizStep, birdsData);
     updateElements(quizStep);
@@ -243,7 +245,7 @@ nextBtnElem.onclick = function(event) {
 
     articlePlayer.pause();
 
-    rightAnwserIndex = randomInteger(0, 5);
+    
   }
 
   stepIndex = quizStep;
