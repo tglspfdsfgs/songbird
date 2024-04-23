@@ -1,7 +1,10 @@
 # Songbird Quiz Application
 
-Welcome to Songbird, a quiz application designed for bird recognition based on their voices. This application comprises three main pages:
+Welcome to Songbird, a quiz application designed for bird recognition based on their voices.
 
+Deployment: https://tglspfdsfgs.github.io/songbird/
+
+## App structure:
 1.  **Home Page**: Sets the overall impression of the application with artistic design, animations, background video, and other attention-grabbing effects. It includes a header with the application logo and navigation links to the home page and quiz page. The footer contains a link to the author's GitHub, the year of creation, and the course logo with a link to the course.
     
 2.  **Quiz Page**: Consists of four main sections:
